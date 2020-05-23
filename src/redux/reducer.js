@@ -6,9 +6,9 @@ const initialStateRegister = {
         email: '',
         noHp: '',
         password: '',
+        error: '',
+        loading: false
     },
-    title: 'Register Page',
-    desc: 'ini adalah desc untuk register',
 };
 
 const initialStateLogin = {
@@ -27,10 +27,10 @@ const RegisterReducer = ( state = initialStateRegister, action ) => {
             form: {
                 ...state.form,
                 [action.inputType]: action.inputValue,
-            },
+            }, 
         };
     }
-    return state;
+    return state;    
 };
 
 const LoginReducer = ( state = initialStateLogin, action ) => {

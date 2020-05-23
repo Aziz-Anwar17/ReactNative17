@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, Image, Button, ScrollView } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import { Input } from '../../../components';
 import { GambarRegister } from '../../../../assets/index';
 import { useSelector, useDispatch } from 'react-redux';
 import { setForm } from './../../../redux';
 import ButtonArt from './../../../components/atoms/ButtonWelcome/index';
+
+
 
 
 const Register = ({navigation}) => {
@@ -17,10 +19,10 @@ const Register = ({navigation}) => {
 
     const handleGoTo = () => {
         navigation.navigate('Login');
-    }
+    };
 
-    const onInputChange = (value, input) => {
-        dispatch(setForm(input, value));
+    const onInputChange = (value, input, e) => {
+        dispatch(setForm(input, value, e));
     };
 
     return(
@@ -38,7 +40,7 @@ const Register = ({navigation}) => {
                 <Input placeholder="Password" value={form.password} onChangeText={(value) => onInputChange(value, 'password')} secureTextEntry={true} />
                 <View style={{height: 45}} />
                 <View style={{paddingHorizontal: 50, alignItems: 'center'}}>
-                    <ButtonArt title="Daftar" onPress={sendData, handleGoTo} />
+                    <ButtonArt title="Daftar" onPress={sendData} />
                 </View>
             </ScrollView>
         </View>
